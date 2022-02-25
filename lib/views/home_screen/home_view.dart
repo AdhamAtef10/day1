@@ -57,7 +57,8 @@ class HomeView extends StatelessWidget{
                                 color:Colors.grey,
                                 child: Column(
                                   children: [
-                                    Text(cubit.categories[index].name.toString())
+                                    Text(cubit.categories[index].name.toString()),
+                                    Image.network(cubit.categories[index].image),
                                   ],
                                 ),
                               );
