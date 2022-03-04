@@ -98,7 +98,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
              ),
            ),
            const SizedBox(
-             height: 15*2,
+             height: 30,
            ),
          ],
        ),
