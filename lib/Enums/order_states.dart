@@ -1,6 +1,6 @@
 enum OrderState{
-  canceled,
-  Arriverd,
-  onBate5
+  Canceled,
+  OrderReceived,
+  OnTheWay,
 
 }

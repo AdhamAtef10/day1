@@ -24,7 +24,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
     super.initState();
     _controller = TabController(length: _numDots, vsync: this);
   }
-
   List<OnBoardingModel> boarding=[
     OnBoardingModel(
       image:'assets/images/onboarding1.png',
@@ -33,10 +32,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
     OnBoardingModel(
       image:'assets/images/onboarding2.png',
       title: 'Your order will be \n immediately collected and\n send by our courier',
-    ),
-    OnBoardingModel(
-      image:'assets/images/onboarding3.png',
-      title: 'Pick up delivery]\n at your door and enjoy\n groceries',
     ),
     OnBoardingModel(
       image:'assets/images/onboarding3.png',
@@ -70,33 +65,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
                  itemBuilder: (context, index) => buildBoardingItem(boarding[index]),
                itemCount: boarding.length,
                onPageChanged: (int index)
-               {
-                 if(index==boarding.length-1)
-                   {
-                     setState(() {
-                       isLast=true;
-                     });
-                     print('last');
-                     /*TextButton(
-                       onPressed: ()
-                       {
-                         AppNavigator.customNavigator(context: context, screen: LoginView(), finish: false);
-                       },
-                       child: Text('Get Started',
-                       style: TextStyle(color: Colors.black),),
-                     );*/
-                     AppNavigator.customNavigator(context: context, screen: const LoginView(), finish: false);
-                   }
-                 else
-                   {
-                     print('not last');
-                     setState(() {
-                       isLast=false;
-                     });
-                   }
-               },
+               {},
              ),
            ),
+           if(_controller.index==2)
+             Text('ll'),
            const SizedBox(
              height: 30,
            ),

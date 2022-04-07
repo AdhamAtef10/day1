@@ -43,8 +43,12 @@ class _OnBoardingView extends State<OnBoardingView>
               child: TextButton(
                   onPressed: _moveNext,
                   child: Text("Next")
-              )
-          )
+              ),
+
+          ),
+          if(_controller.index==2)
+            Text('ll')
+
         ],
       ),
     );

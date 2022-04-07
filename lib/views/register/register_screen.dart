@@ -1,6 +1,8 @@
+import 'package:day1/Enums/toast_state.dart';
 import 'package:day1/bloc/register/register_cubit.dart';
 import 'package:day1/core/compoents/custom_text_field.dart';
 import 'package:day1/core/compoents/space.dart';
+import 'package:day1/core/toast/toast.dart';
 import 'package:day1/core/utlis/naviagtion.dart';
 import 'package:day1/core/utlis/size_config.dart';
 import 'package:day1/src/app_colors.dart';
@@ -52,7 +54,7 @@ class _RegisterViewState extends State<RegisterView> {
                   children: [
                     const VerticalSpace(value: 5),
                     Container(
-                      height: SizeConfig.defaultSize! * 30,
+                      height: SizeConfig.defaultSize! * 20,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                         image: AssetImage('assets/images/logo.png'),
@@ -72,6 +74,9 @@ class _RegisterViewState extends State<RegisterView> {
                         fontSize: 20,
                       ),
                     ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     CustomTextField(
                       controller: nameController,
                       obscure: false,
@@ -79,12 +84,18 @@ class _RegisterViewState extends State<RegisterView> {
                       prefix: Icons.assignment_ind_sharp,
                       sufixicon: null,
                     ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     CustomTextField(
                       controller: emailController,
                       obscure: false,
                       hint: 'Your Email',
                       prefix: Icons.mail_outline,
                       sufixicon: null,
+                    ),
+                    const SizedBox(
+                      height: 30,
                     ),
                     CustomTextField(
                       controller: passwordController,
@@ -102,6 +113,9 @@ class _RegisterViewState extends State<RegisterView> {
                         },
                       ),
                     ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     CustomTextField(
                       controller: passwordConfirmController,
                       obscure: _isObscure,
@@ -118,6 +132,9 @@ class _RegisterViewState extends State<RegisterView> {
                         },
                       ),
                     ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     SizedBox(
                       width: SizeConfig.screenWidth! * 0.9,
                       child: ElevatedButton(
@@ -125,21 +142,29 @@ class _RegisterViewState extends State<RegisterView> {
                           primary: AppColors.KPrimaryColor,
                         ),
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            registerCubit.userRegister(
-                                nameController.text,
-                                emailController.text,
-                                passwordController.text);
-                          }
+                              if (_formKey.currentState!.validate()) {
+                                registerCubit.userRegister(
+                                    nameController.text,
+                                    emailController.text,
+                                    passwordController.text);
+                              }
+                              ToastConfig.showToast(
+                                  msg: 'Registration Successfully',
+                                  toastStates: ToastStates.Success);
+                              AppNavigator.customNavigator(
+                                  context: context,
+                                  screen: LoginView(),
+                                  finish: false);
+
                         },
                         child: const Text('Sign Up'),
                       ),
                     ),
                     if(state is RegisterLoadingState)
                       LinearProgressIndicator(),
-
-
-
+                    const SizedBox(
+                      height: 4,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(

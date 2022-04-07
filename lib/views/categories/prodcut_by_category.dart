@@ -5,6 +5,7 @@ import 'package:day1/models/categories/categories.dart';
 import 'package:day1/models/product/prodcut_to_category.dart';
 import 'package:day1/models/product/product.dart';
 import 'package:day1/src/app_colors.dart';
+import 'package:day1/views/categories/single_product_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +14,7 @@ class SingleCategoryView extends StatefulWidget {
 
   final name;
 
-  SingleCategoryView({required this.id, this.name});
+  SingleCategoryView({required this.id,required this.name,});
 
   @override
   State<SingleCategoryView> createState() => _SingleCategoryViewState();
@@ -76,7 +77,9 @@ class _SingleCategoryViewState extends State<SingleCategoryView> {
                         onTap: () {
                           AppNavigator.customNavigator(
                               context: context,
-                              screen: Prodcut_to_category(),
+                              screen: SingleProductView(
+                                product: cubit.products[index],
+                              ),
                               finish: false);
                         },
                         child: SingleChildScrollView(
@@ -93,6 +96,7 @@ class _SingleCategoryViewState extends State<SingleCategoryView> {
                                       image: NetworkImage(
                                           'https://images.pexels.com/photos/11145305/pexels-photo-11145305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'),
                                       width: double.infinity,
+                                      height: 80,
                                     ),
                                     Text(
                                       cubit.products[index].name!,

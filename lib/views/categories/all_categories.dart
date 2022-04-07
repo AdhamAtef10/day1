@@ -2,7 +2,8 @@ import 'package:day1/bloc/categories/categories_cubit.dart';
 import 'package:day1/core/utlis/naviagtion.dart';
 import 'package:day1/models/categories/categories.dart';
 import 'package:day1/src/app_colors.dart';
-import 'package:day1/views/categories/single_category_screen.dart';
+import 'package:day1/views/categories/prodcut_by_category.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,12 +23,13 @@ class CategoriesScreen extends StatelessWidget {
             elevation: 0,
             actions: [
               Align(
-                alignment: Alignment.topRight,
+                alignment: Alignment.centerRight,
                 child: Text(
                   'Categories',
                   style: TextStyle(
-                    fontSize: 26,
+                    fontSize: 23,
                     color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),

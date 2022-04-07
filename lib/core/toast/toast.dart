@@ -12,7 +12,7 @@ class ToastConfig{
          msg: msg,
          toastLength: Toast.LENGTH_LONG,
          gravity: ToastGravity.BOTTOM,
-         timeInSecForIosWeb: 5,
+         timeInSecForIosWeb: 3,
          backgroundColor: chooseToastColor(toastStates),
          textColor: Colors.white,
          fontSize: 16.0,
@@ -26,7 +26,7 @@ Color chooseToastColor(ToastStates state) {
       color = Colors.green;
       break;
     case ToastStates.Error:
-      //color = AppColors.kPrimaryRedColor;
+      color = Colors.red;
       break;
     case ToastStates.Warning:
       color = Colors.amber;

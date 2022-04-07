@@ -28,6 +28,7 @@ class ProductHub {
 }
 
 class Product {
+  bool isFavorite = false ;
   int? id;
   int? categoryId;
   String? name;
@@ -53,6 +54,7 @@ class Product {
 
   Product.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    isFavorite = false ;
     categoryId = json['category_id'];
     name = json['name'];
     price = json['price'];
