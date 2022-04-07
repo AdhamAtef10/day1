@@ -1,8 +1,11 @@
 import 'dart:ffi';
 
+import 'package:day1/Enums/toast_state.dart';
 import 'package:day1/bloc/login/login_cubit.dart';
 import 'package:day1/core/compoents/space.dart';
+import 'package:day1/core/toast/toast.dart';
 import 'package:day1/core/utlis/naviagtion.dart';
+import 'package:day1/core/utlis/time_config.dart';
 import 'package:day1/src/app_colors.dart';
 import 'package:day1/views/forgt_password/forget_password.dart';
 import 'package:day1/views/home_screen/home_view.dart';
@@ -46,14 +49,14 @@ class _LoginViewState extends State<LoginView> {
         return Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Scaffold(
               body: SingleChildScrollView(
                 child: Column(
                   children: [
                     const VerticalSpace(value: 5),
                     Container(
-                      height: SizeConfig.defaultSize! * 30,
+                      height: SizeConfig.defaultSize! * 25,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('assets/images/logo.png'),
@@ -76,12 +79,18 @@ class _LoginViewState extends State<LoginView> {
                         fontSize: 20,
                       ),
                     ),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     CustomTextField(
                       controller: emailController,
                       obscure: false,
                       sufixicon: null,
                       hint: 'Your Email',
                       prefix: Icons.mail,
+                    ),
+                    const SizedBox(
+                      height: 30,
                     ),
                     CustomTextField(
                       controller: passwordController,
@@ -127,6 +136,9 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     if(state is LoginLoadingState)
                       LinearProgressIndicator(),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -151,7 +163,13 @@ class _LoginViewState extends State<LoginView> {
                         ],
                       ),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     const Text('Don"t have account?'),
+                    const SizedBox(
+                      height: 25,
+                    ),
                     SizedBox(
                       width: SizeConfig.screenWidth! * 0.9,
                       child: ElevatedButton(

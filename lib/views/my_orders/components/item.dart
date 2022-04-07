@@ -25,20 +25,20 @@ class OrderItem extends StatelessWidget {
                   Text(
                     '${user.orderState.name}',
                     style: TextStyle(
-                      color:  user.orderState==OrderState.canceled? Colors.red:Colors.black,
+                      color:  user.orderState==OrderState.Canceled? Colors.red:AppColors.KPrimaryColor,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
-                    width: 80,
+                    width: 59,
                   ),
                   Text(
                     '${user.price}',
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: AppColors.KPrimaryColor,
+                      color: user.orderState==OrderState.Canceled? Colors.red:AppColors.KPrimaryColor,
                     ),
                   ),
                 ],

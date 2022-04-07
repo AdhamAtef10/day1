@@ -13,13 +13,11 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   List<Category> categories = [];
   CategoriesHub  ?categoriesHub;
   getAllCategories() {
-    print('hello 1 ');
     emit(CategoriesLoadingState());
     DioHelper.getData(
         url: 'categories',
       token: SharedPreferencesHelper.getData(key:'token'),
     ).then((value) {
-      print('hello 2 ');
       var jsonData = jsonDecode(value.data);
       categoriesHub = CategoriesHub.fromJson(jsonData);
       for (var category in categoriesHub!.data!)

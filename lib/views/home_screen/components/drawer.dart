@@ -3,13 +3,15 @@ import 'package:day1/core/utlis/size_config.dart';
 import 'package:day1/services/shared-prefrence/cache_helper.dart';
 import 'package:day1/src/app_colors.dart';
 import 'package:day1/views/about_us/aboutus.dart';
-import 'package:day1/views/cart/cart.dart';
-import 'package:day1/views/categories/categories.dart';
+import 'package:day1/views/cart/cart_view.dart';
 import 'package:day1/views/content_us/contentus.dart';
 import 'package:day1/views/login/login_screen.dart';
 import 'package:day1/views/my_orders/myorders.dart';
+import 'package:day1/views/profile/profile.dart';
 import 'package:day1/views/wish_list/wishlist.dart';
 import 'package:flutter/material.dart';
+
+import '../../categories/all_categories.dart';
 
 class Drawerr extends StatelessWidget {
 
@@ -41,11 +43,20 @@ class Drawerr extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text('Edit',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),),
+                        TextButton(
+                            onPressed: () {
+                              AppNavigator.customNavigator(
+                                  context: context,
+                                  screen: ProfileView(),
+                                  finish: false
+                              );
+                            },
+                            child: Text('Edit',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),),
+                        ),
                         SizedBox(
                           width:25 ,
                         ),
@@ -67,7 +78,7 @@ class Drawerr extends StatelessWidget {
             leading: Icon(Icons.shopping_cart),
             onTap: ()
             {
-               AppNavigator.customNavigator(context: context, screen:Cart() , finish: false);
+               AppNavigator.customNavigator(context: context, screen:CartView() , finish: false);
             },
           ),
           ListTile(

@@ -7,42 +7,28 @@ class MyOrders extends StatelessWidget {
 
   List<Order> users = [
     Order(
-      orderState: OrderState.canceled,
+      orderState: OrderState.OrderReceived,
       price:' 2400 EGP',
       date: '17 Nov 2022',
       address: '140 Giza Bahr_Azzam street',
 
     ),
     Order(
-      orderState: OrderState.canceled,
+      orderState: OrderState.OrderReceived,
       price:' 2400 EGP',
       date: '17 Nov 2022',
       address: '140 Giza Bahr_Azzam street',
 
     ),
     Order(
-      orderState: OrderState.canceled,
+      orderState: OrderState.OnTheWay,
       price:' 2400 EGP',
       date: '17 Nov 2022',
       address: '140 Giza Bahr_Azzam street',
 
     ),
     Order(
-      orderState: OrderState.canceled,
-      price:' 2400 EGP',
-      date: '17 Nov 2022',
-      address: '140 Giza Bahr_Azzam street',
-
-    ),
-    Order(
-      orderState: OrderState.canceled,
-      price:' 2400 EGP',
-      date: '17 Nov 2022',
-      address: '140 Giza Bahr_Azzam street',
-
-    ),
-    Order(
-      orderState: OrderState.canceled,
+      orderState: OrderState.Canceled,
       price:' 2400 EGP',
       date: '17 Nov 2022',
       address: '140 Giza Bahr_Azzam street',
@@ -57,14 +43,16 @@ class MyOrders extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
-        actions: [
-          Text('My Orders',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            fontSize: 30
-          ),),
-        ],
+          title:Align(
+            alignment: Alignment.centerRight,
+            child: Text('My Orders',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 27
+            ),),
+          ),
+
       ),
       body: ListView.separated(
         itemBuilder:(context,index)=>OrderItem(users[index]),

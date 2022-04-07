@@ -30,7 +30,7 @@ class Sliderr extends StatelessWidget {
           options: CarouselOptions(
             autoPlay: true,
             enableInfiniteScroll: false,
-            height: 100,
+            height: 150,
             initialPage: 0,
             reverse: false,
             autoPlayInterval: Duration(seconds: 2),

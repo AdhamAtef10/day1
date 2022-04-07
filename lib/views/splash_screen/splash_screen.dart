@@ -21,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
     Timer(const Duration(seconds: 2), ()=>
     (SharedPreferencesHelper.getData(key:'token'))==null?
         AppNavigator.customNavigator(context: context, screen: LoginView(), finish: false)
-    :AppNavigator.customNavigator(context: context, screen:HomeView(), finish: false)
+    :AppNavigator.customNavigator(context: context, screen:LoginView(), finish: false)
     );
   }
   @override
