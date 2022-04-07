@@ -27,7 +27,7 @@ class AppRoot extends StatelessWidget {
       ],
       child:MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SplashView(),
+        home: LoginView(),
       ),
     );
   }
